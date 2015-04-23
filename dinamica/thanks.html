@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sistemas de Informação I</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/meuForm.css">
+
+    <!-- Custom CSS -->
+    <link href="css/blog-post.css" rel="stylesheet">
+
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">A disciplina</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="form.html">Cadastro</a>
+                </li>
+
+            </ul>
+        </div>
+
+
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+
+<!-- Page Content -->
+<div class="">
+    <center>
+        <h1><font size="50"> Obrigado!</font></h1>
+        <p> Seu cadastro em Sistemas de Informação I foi realizado com sucesso!<br/>
+            Clique <a href="index.html">aqui</a> para voltar para o ínicio.
+       </p>
+    </center>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <form id="formulario">
+                <div class="form-group">
+                    <label for="assuntosAprender"> Quais assuntos você gostaria de aprender?</label>
+                    <input type="text" class="form-control" id="assuntosAprender" placeholder="Nome do assunto">
+                </div>
+
+                <button type="submit" class="btn btn-default">Enviar</button>
+            </form>
+
+            <br>
+            <ul id="listaAssuntosAprender" class="list-group">
+            </ul>
+        </div>
+
+        <div class="col-lg-3 col-lg-offset-2">
+            <div class="row">
+                <button onclick="removeDisciplina()" id="botaoRemover" type="button" class="btn btn-danger" disabled>
+                    Remover
+                </button>
+            </div>
+            <br>
+            <div class="row">
+                <button onclick="moveDisciplina()" id="botaoMover" type="button" class="btn btn-success" disabled>Já aprendi</button>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <form id="formularioAprendido">
+                <div class="form-group">
+                    <label for="assuntosAprendidos">Quais assuntos você já aprendeu (em outras disciplinas)?</label>
+                    <input type="text" class="form-control" id="assuntosAprendidos" placeholder="Nome do assunto">
+                </div>
+
+                <button type="submit" class="btn btn-default">Enviar</button>
+            </form>
+
+            <br>
+
+            <ul id="listaAssuntosAprendidos" class="list-group">
+            </ul>
+        </div>
+
+        <br>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div id="result_yt">
+
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-lg-1 col-lg-offset-5">
+
+                <p><a id="botaoInicio" class="btn btn-md btn-default" href="index.html" role="button">Início</a></p>
+
+            </div>
+
+            </div>
+        </div>
+</div>
+
+
+
+
+
+<!-- /.container -->
+
+<!-- jQuery Version 1.11.0 -->
+<script src="js/jquery-1.11.0.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
