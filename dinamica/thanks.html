@@ -32,25 +32,12 @@
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html">A disciplina</a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="form.html">Cadastro</a>
-                </li>
-
-            </ul>
+            <a class="navbar-brand" style="color: white" href="index.html">A disciplina</a>
         </div>
 
-
+        <div class="navbar-header">
+            <a class="navbar-brand" style="color: white" href="form.html">Cadastro</a>
+        </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
@@ -59,83 +46,79 @@
 
 
 <!-- Page Content -->
-<div class="">
-    <center>
-        <h1><font size="50"> Obrigado!</font></h1>
-        <p> Seu cadastro em Sistemas de Informação I foi realizado com sucesso!<br/>
-            Clique <a href="index.html">aqui</a> para voltar para o ínicio.
-       </p>
-    </center>
 
-    <div class="row">
-        <div class="col-lg-3">
-            <form id="formulario">
-                <div class="form-group">
-                    <label for="assuntosAprender"> Quais assuntos você gostaria de aprender?</label>
-                    <input type="text" class="form-control" id="assuntosAprender" placeholder="Nome do assunto">
-                </div>
-
-                <button type="submit" class="btn btn-default">Enviar</button>
-            </form>
-
-            <br>
-            <ul id="listaAssuntosAprender" class="list-group">
-            </ul>
-        </div>
-
-        <div class="col-lg-3 col-lg-offset-2">
-            <div class="row">
-                <button onclick="removeDisciplina()" id="botaoRemover" type="button" class="btn btn-danger" disabled>
-                    Remover
-                </button>
-            </div>
-            <br>
-            <div class="row">
-                <button onclick="moveDisciplina()" id="botaoMover" type="button" class="btn btn-success" disabled>Já aprendi</button>
-            </div>
-        </div>
-
-        <div class="col-lg-3">
-            <form id="formularioAprendido">
-                <div class="form-group">
-                    <label for="assuntosAprendidos">Quais assuntos você já aprendeu (em outras disciplinas)?</label>
-                    <input type="text" class="form-control" id="assuntosAprendidos" placeholder="Nome do assunto">
-                </div>
-
-                <button type="submit" class="btn btn-default">Enviar</button>
-            </form>
-
-            <br>
-
-            <ul id="listaAssuntosAprendidos" class="list-group">
-            </ul>
-        </div>
-
-        <br>
-
-        <hr>
-
-        <div class="row">
-            <div class="col-lg-12">
-
-                <div id="result_yt">
-
-                </div>
-
-            </div>
-        </div>
-        <br>
-        <br>
-        <br>
+<div class="container" align="center">
+        <h1><p align="center"></p> <font size="50"> Obrigado!</font></h1>
+        <h3><p align="center"> Seu cadastro em Sistemas de Informação I foi realizado com sucesso!<br/></h3>
         <div class="row">
             <div class="col-lg-1 col-lg-offset-5">
 
-                <p><a id="botaoInicio" class="btn btn-md btn-default" href="index.html" role="button">Início</a></p>
-
-            </div>
-
             </div>
         </div>
+            <br><br>
+       </p>
+    </div>
+<h2 style="background-color: #101010"><hr><p align="center" style="color: white"> Organize seus estudos!<br><br></h2></p><hr style="color: white">
+<div class="container">
+    <section class="form">
+        <div class="row">
+
+
+            <div class="col-md-4">
+                <h4><strong>
+                    Adicione assuntos do seu interesse!
+                </strong></h4>
+                <br>
+                <form id="toLearn">
+
+                    <div class="form-group">
+                        <label for="inputToLearn">Aprender</label>
+                        <input type="text" class="form-control" id="inputToLearn" placeholder="Assunto a aprender">
+                    </div>
+                    <p align="center"><a class="btn btn-md btn-default" onclick="addToLearn()" type="submit">Adicionar</a></p>
+                </form>
+
+                <form id="Learned">
+                    <div class="form-group">
+                        <label for="inputLearned">Já aprendi!</label>
+                        <input type="text" class="form-control" id="inputLearned" placeholder="Assunto">
+                    </div>
+                    <p align="center"><a class="btn btn-md btn-default" onclick="addLearned()" type="submit">Adicionar</a></p>
+                </form>
+
+            </div>
+
+            <div class="col-md-8">
+                <h2 align="center" style="color: darkslategrey"><strong>
+                    Assuntos sugeridos
+                </strong></h2>
+                <br>
+
+                <table class="table table-hover table-bordered" id="topics">
+                    <thead>
+                    <tr>
+                        <th>Assuntos</th>
+                        <th width="30%">Opções</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </section>
+    <div align="center">
+        <br><hr>
+        <p align="center"><a class="btn btn-md btn-default" href="index.html" role="button">Volte ao início</a></p>
+    </div>
+    <footer class="footer">
+        <hr>
+        <p align="center">&copy; Arthur Lustosa - Projeto desenvolvido para a disciplina de SI1</p>
+        <hr>
+    </footer>
+
 </div>
 
 
@@ -145,6 +128,7 @@
 <!-- /.container -->
 
 <!-- jQuery Version 1.11.0 -->
+<script src="jquery/jquery-1.11.2.min.js"></script>
 <script src="js/jquery-1.11.0.js"></script>
 
 <!-- Bootstrap Core JavaScript -->

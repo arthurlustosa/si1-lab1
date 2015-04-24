@@ -1,89 +1,64 @@
 /**
  * Created by Arthur on 4/23/2015.
- */
-function addDisciplnaNaLista(){
-    var assunto = $("#assuntosAprender").val();
-    var elemento = $ ("<input>");
-    var texto = $("<label></label>");
-
-    elemento.attr("type", "checkbox");
-    elemento.attr("class", "caixa movel");
-    texto.html(assunto);
-    texto.append(elemento);
-
-    $("#listaAssuntosAprender").append(texto);
-
-    $(".caixa").click(function () {
-        verificaBotaoRemover();
-        verificaBotaoMover();
-    });
-
-}
-
-function addDiscplinaNaListaAprendida() {
-    var assunto = $("#assuntosAprender").val();
-    var elemento = $ ("<input>");
-    var texto = $("<label></label>");
-
-    elemento.attr("type", "checkbox");
-    elemento.attr("class", "caixa");
-    texto.html(assunto);
-    texto.append(elemento);
-
-    $("#listaAssuntosAprendidos").append(texto);
-
-    $(".caixa").not(".movel").click(function (){
-        verificaBotaoRemover();
-    });
-}
-function verificaBotaoMover() {
-    if ($(".movel").is(":checked")) {
-        $("#botaoMover").prop("disabled", false);
-    } else {
-        $("#botaoMover").prop("disabled", true);
-    }
-
-}
-
-function verificaBotaoRemover() {
-    if ($(".caixa").is(":checked")) {
-        $("#botaoRemover").prop("disabled", false);
-    }else {
-        $("#botaoRemover").prop("disabled", true);
-
-    }
-}
-
-function moveDisciplina() {
-    var assuntos = $(".movel:checked")
-        .prop("checked", false)
-        .removeClass("movel")
-        .parents("label");
-    $("listaAssuntosAprendidos").append(assuntos);
-
-    verificaBotaoMover();
-    verificaBotaoRemover();
-}
-
-function removeDisciplina() {
-    $(".caixa:checked").parents("label").remove();
-
-    verificaBotaoMover();
-    verificaBotaoRemover();
-}
-
-$(function () {
-    $("#formulario").submit(function () {
-        addDisciplnaNaLista();
-        $("#assuntosAprender").val("");
-
+ */$(document).ready(function(){
+    $("#toLearn").submit(function () {
+        addToLearn();
+        $("#inputToLearn").val("");
         return false;
     });
 
-    $("#formularioAprendido").submit(function () {
-        addDiscplinaNaListaAprendida()
-        $("#assuntosAprendidos").val("");
+    if ($("#list tr").length == 1){
 
+    }
+
+    $("#Learned").submit(function () {
+        addLearned();
+        $("#inputLearned").val("");
         return false;
     });
+
+    $(document).on("click", "#btnRemove", function(){
+        $(this).parent().parent().fadeOut("fast", function(){
+            $(this).remove();
+        });
+    });
+
+
+    $(document).on("click", "#btnLearn", function(){
+        $(this).fadeOut("fast", function(){
+            $(this).parent().parent().css("background-color", "rgba(144, 255, 191, 0.42)");
+            $(this).remove();
+        });
+    });
+
+
 });
+
+function addToLearn(){
+    var topic = $("#inputToLearn").val();
+
+    if (topic != "") {
+        $("#topics").append(
+            "<tr class='tolearn' style='background: #ffc0b4;'>" +
+            "<td>" + topic + "</td>" +
+            "<td>" + '<button id="btnRemove" class="btn btn-small btn-danger">Remover</button>' +
+            "    " +
+            '<button id="btnLearn" class="btn btn-small btn-warning">Aprendi!</button>' +
+            "</tr>");
+        $("#inputToLearn").val("");
+    }
+}
+
+function addLearned(){
+    var topic = $("#inputLearned").val();
+
+    if (topic != "") {
+        $("#topics").append(
+            "<tr class='learned' style='background: rgba(144, 255, 191, 0.42)'>" +
+            "<td>" + topic + "</td>" +
+            "<td>" + '<button id="btnRemove" class="btn btn-small btn-danger">Remover</button>' +
+            "</td>" +
+            "</tr>");
+        $("#inputLearned").val("");
+    }
+}
